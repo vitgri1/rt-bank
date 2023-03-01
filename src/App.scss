@@ -1,0 +1,70 @@
+.App {
+  text-align: center;
+  padding: 50px;
+}
+
+.new-client{
+  font-size: 20px;
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr;
+  .input-name,
+  .input-surname,
+  .btn-create{
+    font-size: inherit;
+    width: 100%;
+  }
+}
+
+.client-list-box {
+  border: 1px solid #000;
+  padding: 15px 0;
+  margin-top: 15px;
+  .client-list{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .client-item{
+      display: grid;
+      grid-template-columns: 2fr 2fr 1fr;
+      gap: 10px;
+      .client-info{
+        padding-left: 10px;
+        display: grid;
+        grid-template-columns: 2fr 2fr 1fr;
+        justify-items: left;
+        align-items: center;
+        gap: 10px;
+        text-transform: capitalize;
+        .client-funds{
+          justify-self: right;
+        }
+      }
+      .client-edit-funds{
+        display: grid;
+        grid-template-columns: 1fr 2fr 2fr;
+        input{
+          width: 100%;
+        }
+      }
+    }
+    .list-labels{
+      display: grid;
+      grid-template-columns: 2fr 2fr 1fr;
+      gap: 10px;
+      font-weight: bold;
+      > div:first-child{
+        user-select: none;
+        padding-left: 10px;
+        display: grid;
+        grid-template-columns: 2fr 2fr 1fr;
+        justify-items: left;
+        align-items: center;
+        gap: 10px;
+        text-transform: capitalize;
+      }
+    }
+  }
+}
