@@ -18,6 +18,8 @@ function Accounts({ KEY, setLastRefresh, lastRefresh }) {
   const deleteClient = (id) => {
     if (list.filter((c) => c.id === id)[0].funds === "0") {
       destroy(KEY, id);
+    } else {
+        alert ('Negalima ištrinti kliento kuris turi lėšų!')
     }
     setLastRefresh(Date.now());
   };
@@ -77,7 +79,7 @@ function Accounts({ KEY, setLastRefresh, lastRefresh }) {
                 <div className="client-info">
                   <div className="client-name">{c.clientName}</div>
                   <div className="client-surname">{c.clientSurname}</div>
-                  <div className="client-funds">{c.funds}</div>
+                  <div style={{color: c.funds === '0'? 'red': 'inherit'}} className="client-funds">{c.funds}</div>
                 </div>
                 <div className="client-edit-funds">
                   <input
@@ -86,10 +88,10 @@ function Accounts({ KEY, setLastRefresh, lastRefresh }) {
                     value={fundChange.filter((i) => i.id === c.id)[0].funds}
                     onChange={(e) => fundsNow(e, c.id)}
                   />
-                  <button onClick={() => manipulateFunds(c.id, "+")}>
+                  <button className="btn" onClick={() => manipulateFunds(c.id, "+")}>
                     Pridėti lėšų
                   </button>
-                  <button onClick={() => manipulateFunds(c.id, "-")}>
+                  <button className="btn" onClick={() => manipulateFunds(c.id, "-")}>
                     Nuskaičiuoti lėšas
                   </button>
                 </div>
